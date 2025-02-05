@@ -1,26 +1,17 @@
 import {
+  isRouteErrorResponse,
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
+  useRouteError,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 
-import "./tailwind.css";
-
-export const links: LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  {
-    rel: "preconnect",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-  },
-];
+import tailwindStyles from "./tailwind.css?url";
+import globalStyles from "./global.css?url";
+import { BackButton } from "./components/BackButton/BackButton";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -33,6 +24,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         {children}
+        {/* <Outlet /> */}
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -42,4 +34,46 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return <Outlet />;
+}
+
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: tailwindStyles },
+  { rel: "stylesheet", href: globalStyles },
+];
+
+export function ErrorBoundary() {
+  const error = useRouteError();
+  console.error(error);
+
+  return (
+    <html>
+      <head>
+        <title>Oh no!</title>
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        <div className="flex flex-col items-center justify-center h-screen space-y-4">
+          <h1 className="text-4xl font-bold text-red-500">Oh no!</h1>
+          <p className="text-lg text-gray-600">
+            An error occurred while rendering this page.
+          </p>
+          <div className="text-sm text-gray-500">
+            <p>
+              {isRouteErrorResponse(error)
+                ? `${error.status} ${error.statusText}`
+                : error instanceof Error
+                ? error.message
+                : "Unknown error"}
+            </p>
+            {/* <p>
+              <pre>{error.stack}</pre>
+            </p> */}
+          </div>
+          <BackButton />
+        </div>
+        <Scripts />
+      </body>
+    </html>
+  );
 }
