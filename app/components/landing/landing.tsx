@@ -64,9 +64,9 @@ const LandingPage = () => {
           <motion.div
             key={i}
             onClick={() => setIndex(i)}
-            className={` w-5 h-1 lg:w-10 lg:h-2 rounded-md cursor-pointer ${
+            className={`w-5 h-1 lg:w-10 lg:h-2 rounded-md cursor-pointer ${
               i === index
-                ? "bg-black w-10 h-2 lg:w-20 lg:h-3 transition-all duration-500"
+                ? "bg-orange-600 w-14 h-2 lg:w-20 lg:h-3 transition-all duration-500"
                 : "bg-gray-300"
             }`}
           />

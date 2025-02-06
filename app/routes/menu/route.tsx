@@ -74,7 +74,7 @@ const MenuPageLayout = () => {
                     <DropdownMenuItem
                       key={index}
                       onClick={() => setActiveCategory(category)}
-                      className={`capitalize p-5 border-l-8 border-l-orange-600 border-b-2 cursor-pointer`}
+                      className={`capitalize p-3 text-sm border-l-8 border-l-orange-600 border-b-2 cursor-pointer `}
                     >
                       {category}
                     </DropdownMenuItem>
