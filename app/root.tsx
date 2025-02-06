@@ -7,7 +7,8 @@ import {
   ScrollRestoration,
   useRouteError,
 } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
+// import type { LinksFunction } from "@remix-run/node";
+import { type LinksFunction } from "@vercel/remix";
 
 import tailwindStyles from "./tailwind.css?url";
 import globalStyles from "./global.css?url";

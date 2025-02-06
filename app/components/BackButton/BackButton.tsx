@@ -1,4 +1,3 @@
-import { Link } from "@remix-run/react";
 import { Button } from "../ui/button";
 
 export const BackButton = ({}) => {
@@ -9,7 +8,6 @@ export const BackButton = ({}) => {
       onClick={() => window.history.back()}
     >
       Back to Home
-      {/* <IoReturnUpBack /> */}
     </Button>
   );
 };

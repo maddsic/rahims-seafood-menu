@@ -12,20 +12,13 @@ import {
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
 import { BackButton } from "~/components/BackButton/BackButton";
 import { Button } from "~/components/ui/button";
-import { MdMenu, MdMenuBook } from "react-icons/md";
+import { MdMenu } from "react-icons/md";
 
 const MenuPageLayout = () => {
   const defaultCategory = Object.keys(categories)[0];
@@ -71,7 +64,7 @@ const MenuPageLayout = () => {
                   initial="hidden"
                   animate="visible"
                   exit="exit"
-                  // variants={dropdownVariants}
+                  variants={dropdownVariants}
                 >
                   {Object.keys(categories).map((category, index) => (
                     <DropdownMenuItem
