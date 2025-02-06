@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -7,4 +9,19 @@
 
 html,
 body {
+  font-family: "Poppins", sans-serif;
+  /* font-size: 16px;
+  line-height: 1.5;
+  color: var(--foreground);
+  background-color: var(--background); */
+}
+
+/* Hide scrollbar for WebKit browsers */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.scrollbar-hide {
+  scrollbar-width: none;
 }

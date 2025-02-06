@@ -41,7 +41,7 @@ const MenuPageLayout = () => {
   };
 
   return (
-    <main className="flex-1 min-h-screen lg:ml-72 relative">
+    <main className="flex-1 min-h-screen lg:ml-72 relative mb-10">
       <Sidebar
         activeCategory={activeCategory}
         setActiveCategory={setActiveCategory}
@@ -54,30 +54,32 @@ const MenuPageLayout = () => {
           <div className="lg:hidden">
             <DropdownMenu>
               <DropdownMenuTrigger asChild className="">
-                <Button variant="outline" className="">
-                  <MdMenu size={32} className="border w-full" />
-                  {/* Menu */}
+                <Button
+                  variant="outline"
+                  className="shadow bg-primaryColor text-white outline-none"
+                >
+                  {/* <MdMenu size={32} className="border w-full" /> */}
+                  Menu
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-72 px-5 py-5 space-y-2 mr-10">
+              <DropdownMenuContent className="w-72 px-5 py-5 space-y-10 mr-10 max-h-[800px] overflow-y-scroll scrollbar-thin scrollbar-hide">
                 <motion.div
                   initial="hidden"
                   animate="visible"
                   exit="exit"
                   variants={dropdownVariants}
+                  className="flex flex-col space-y-2"
                 >
                   {Object.keys(categories).map((category, index) => (
                     <DropdownMenuItem
                       key={index}
                       onClick={() => setActiveCategory(category)}
-                      className={`${
-                        activeCategory === String(index) ? "bg-orange-600" : ""
-                      } capitalize p-5 border-l-8 border-l-orange-600 `}
+                      className={`capitalize p-5 border-l-8 border-l-orange-600 border-b-2 cursor-pointer`}
                     >
                       {category}
                     </DropdownMenuItem>
                   ))}
-                  <DropdownMenuSeparator />
+                  {/* <DropdownMenuSeparator /> */}
                 </motion.div>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -121,7 +123,7 @@ function MenuCard({ item, index }: { item: any; index: number }) {
       }}
       className="cursor-pointer relative"
     >
-      <Card className="h-40 lg:h-40 hover:bg-gray-100 transition-all duration-500 ease-in-out shadow-lg p-0">
+      <Card className="h-44 lg:h-44 hover:bg-gray-100 transition-all duration-500 ease-in-out shadow-lg p-0">
         <CardHeader>
           <CardTitle className="text-sm md:text-base lg:text-lg text-secondaryColor">
             {item.name}

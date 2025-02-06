@@ -58,14 +58,15 @@ const LandingPage = () => {
           </div>
         </AnimatePresence>
       </main>
+      {/* SLIDER DOTS */}
       <div className="absolute flex items-center bottom-20 justify-center gap-3 w-full z-30">
         {Headlines.map((_, i) => (
           <motion.div
             key={i}
             onClick={() => setIndex(i)}
-            className={`w-10 h-2 rounded-md cursor-pointer ${
+            className={` w-5 h-1 lg:w-10 lg:h-2 rounded-md cursor-pointer ${
               i === index
-                ? "bg-black w-20 h-3 transition-all duration-500"
+                ? "bg-black w-10 h-2 lg:w-20 lg:h-3 transition-all duration-500"
                 : "bg-gray-300"
             }`}
           />

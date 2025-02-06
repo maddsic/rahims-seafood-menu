@@ -1,3 +1,4 @@
+import { IoMdArrowBack } from "react-icons/io";
 import { Button } from "../ui/button";
 
 export const BackButton = ({}) => {
@@ -7,7 +8,8 @@ export const BackButton = ({}) => {
       className=""
       onClick={() => window.history.back()}
     >
-      Back to Home
+      Back
+      {/* <IoMdArrowBack size={} /> */}
     </Button>
   );
 };
